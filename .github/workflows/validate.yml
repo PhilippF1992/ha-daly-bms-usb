@@ -22,13 +22,9 @@ jobs:
       - uses: hacs/action@main
         with:
           category: integration
-          # Personal-use integration: not officially listed, so we don't
-          # require repo topics, a repo description, or the home-assistant/brands
-          # entry. Brand assets are shipped locally under custom_components/daly_bms_usb/brand/.
-          ignore: |
-            topics
-            description
-            brands
+          # Personal-use integration: not officially listed in home-assistant/brands.
+          # Brand assets are shipped locally under custom_components/daly_bms_usb/brand/.
+          ignore: brands
 
   tests:
     name: Tests
