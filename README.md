@@ -32,7 +32,8 @@ understand the consequences for your system.
 
 ### HACS
 
-1. Add this repository as a custom repository (Integration) in HACS.
+1. In HACS → Integrations → **⋮** → **Custom repositories**, add
+   `https://github.com/PhilippF1992/ha-daly-bms-usb` with category **Integration**.
 2. Install **Daly BMS USB**.
 3. Restart Home Assistant.
 4. Go to **Settings → Devices & services → Add integration**, search for

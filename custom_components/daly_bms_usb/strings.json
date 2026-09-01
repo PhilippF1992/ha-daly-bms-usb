@@ -1,0 +1,75 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Daly BMS USB",
+        "description": "Select the USB serial connection for the Daly-supplied UART-to-USB cable. Stable /dev/serial/by-id/ paths are preferred over /dev/ttyUSB* or /dev/ttyACM*.\n\nEnabling write operations allows Home Assistant to control supported BMS functions, including the charge and discharge MOS outputs. Incorrect use may disconnect charging or the battery load. Leave this disabled unless you understand the consequences.",
+        "data": {
+          "serial_port": "USB serial connection",
+          "manual_path": "Manual path (only used when 'Manual path' is selected above)",
+          "poll_interval": "Polling interval (seconds)",
+          "enable_writes": "Enable write operations"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Could not open the selected serial port",
+      "permission_denied": "Home Assistant does not have permission to access this serial port",
+      "port_not_found": "Selected serial port does not exist",
+      "port_in_use": "Serial port is already in use by another process",
+      "timeout": "The BMS did not respond within the timeout",
+      "invalid_response": "The device did not return a valid Daly UART frame",
+      "unknown": "Unknown error while validating the BMS connection",
+      "manual_path_required": "Please enter the manual serial path"
+    },
+    "abort": {
+      "already_configured": "This serial connection is already configured"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Daly BMS USB options",
+        "description": "Enabling write operations allows Home Assistant to control supported BMS functions, including the charge and discharge MOS outputs. Incorrect use may disconnect charging or the battery load. Leave this disabled unless you understand the consequences.",
+        "data": {
+          "poll_interval": "Polling interval (seconds)",
+          "enable_writes": "Enable write operations"
+        }
+      }
+    },
+    "error": {
+      "invalid_interval": "Polling interval is out of range"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "total_voltage": { "name": "Total voltage" },
+      "current": { "name": "Current" },
+      "power": { "name": "Power" },
+      "soc": { "name": "State of charge" },
+      "remaining_capacity": { "name": "Remaining capacity" },
+      "cycles": { "name": "Cycle count" },
+      "cell_count": { "name": "Cell count" },
+      "temp_sensor_count": { "name": "Temperature sensor count" },
+      "highest_cell_voltage": { "name": "Highest cell voltage" },
+      "lowest_cell_voltage": { "name": "Lowest cell voltage" },
+      "highest_cell_number": { "name": "Highest-voltage cell number" },
+      "lowest_cell_number": { "name": "Lowest-voltage cell number" },
+      "cell_delta": { "name": "Cell voltage delta" },
+      "mode": { "name": "BMS mode" },
+      "cell_voltage": { "name": "Cell {cell} voltage" },
+      "temperature": { "name": "Temperature sensor {sensor}" }
+    },
+    "binary_sensor": {
+      "charge_mos_state": { "name": "Charge MOS state" },
+      "discharge_mos_state": { "name": "Discharge MOS state" },
+      "charger_running": { "name": "Charger running" },
+      "load_running": { "name": "Load running" },
+      "alarm": { "name": "Alarm" }
+    },
+    "switch": {
+      "charge_mos_switch": { "name": "Charge MOS" },
+      "discharge_mos_switch": { "name": "Discharge MOS" }
+    }
+  }
+}
